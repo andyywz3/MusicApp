@@ -1,17 +1,17 @@
 MusicApp::Application.routes.draw do
   resources :bands do
-    member do
       resources :albums, except: [:new, :create] do
-        member do
-          resources :tracks
-        end
-      end
+        resources :tracks, except: [:new, :create]
     end
   end
 
-  get 'bands/:id/tracks' => 'bands#tracks'
+  get 'bands/:id/tracks' => 'bands#tracks', as: "bands_tracks"
+
   get 'albums/new' => 'albums#new'
   post 'albums' => 'albums#create', as: "albums_create"
+
+  get 'bands/:band_id/tracks/new' => 'tracks#new'
+  post 'bands/:band_id/tracks' => 'tracks#create', as: "tracks_create"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,28 @@
+<h1>Create Track</h1>
+
+<form action="<%= tracks_create_url(@band) %>" method="post">
+  <div>Name: <input type="text" name="track[name]"></div>
+
+  <div>Album:
+    <select name="album[name]">
+      <option value="">Choose an album</option>
+      <% @albums.each do |album| %>
+      <option value="<%= album.name %>"><%= album.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    Type:
+    <input name="track[type]" id="regular_track" type="radio" value="regular">
+    <label for="regular_track">Regular</label>
+
+    <input name="track[type]" id="bonues_track" type="radio" value="bonus">
+    <label for="bonus_track">Bonus</label>
+  </div>
+
+  <div>Lyrics:<input type="textarea" name="track[lyrics]"></div>
+
+  <br>
+  <input type="submit" value="Submit">
+</form>

@@ -1,21 +1,15 @@
 <h1> <%= @band.name %>'s page</h1>
 
-<ul>
-  <% @band.albums.each do |album| %>
-    <li>
-      <a href="<%= albums_url(@band) %>"><%= album.name %></a>
-      <ol>
-        <% album.tracks.each do |track| %>
-        <li><a href="<%= track_url(@band,album, track) %>"><%= track.name %></a>
-        </li>
-        <% end %>
-      </ol>
-    </li>
-  <% end %>
-</ul>
-
+<a href="<%= albums_url(@band) %>">Albums</a>
 <br>
-<form action="<%= band_url(@band) %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Remove band">
-</form>
+<a href="<%= bands_tracks_url(@band) %>">Tracks</a>
+
+<p>
+  <form action="<%= edit_band_url(@band)%>" method="get">
+    <input type="submit" value="Edit band">
+  </form>
+  <form action="<%= band_url(@band)%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Remove band">
+  </form>
+</p>

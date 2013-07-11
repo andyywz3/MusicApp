@@ -1,0 +1,31 @@
+<h1>Edit <%= @album.name %></h1>
+
+<form action="<%= album_url(@band, @album) %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <div>Name: <input type="text" name="album[name]" value="<%= @album.name %>"></div>
+
+  <div>Genre: <input type="text" name="album[genre]" value="<%= @album.genre %>"></div>
+
+  <div>Band:
+    <select name="band[name]">
+      <option ><%= @band.name %></option>
+      <% @bands.each do |band| %>
+      <option value="<%= band.name %>"><%= band.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    Recorded:
+    <input name="album[recorded]" id="studio_recorded" type="radio" value="studio"
+      <%= @album.recorded == "studio" ? "checked" : "" %>>
+    <label for="studio_recorded">Studio</label>
+
+    <input name="album[recorded]" id="live_recorded" type="radio" value="live"
+    <%= @album.recorded == "live" ? "checked" : "" %>>
+    <label for="live_recorded">Live</label>
+  </div>
+
+  <br>
+  <input type="submit" value="Submit">
+</form>

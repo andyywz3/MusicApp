@@ -1,0 +1,13 @@
+<h1> <%= @album.name %></h1>
+<a href="<%= band_url(@band) %>"><%= @band.name %></a>
+<br>
+<a href="<%= album_tracks_url(@band, @album) %>">Tracks</a>
+<br>
+<form action="<%= edit_album_url(@band, @album) %>" method="get">
+  <input type="submit" value="Edit album">
+</form>
+<br>
+<form action="<%= album_url(@band, @album) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Remove album">
+</form>

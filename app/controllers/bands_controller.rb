@@ -7,6 +7,7 @@ class BandsController < ApplicationController
   def create
     band = Band.new(params[:band])
     flash[:errors] ||= []
+
     if band.save
       redirect_to bands_url
     else
@@ -29,9 +30,15 @@ class BandsController < ApplicationController
   end
 
   def update
-    @band = Band.find(params[:id])
-    @band.update_attributes!(params[:band])
-    redirect_to band_url
+    band = Band.find(params[:id])
+    band.update_attributes(params[:band])
+    flash[:errors] ||= []
+
+    if band.save
+      redirect_to band_url
+    else
+      flash[:errors] << "Could not update band"
+    end
   end
 
   def destroy
@@ -44,5 +51,4 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     render :tracks
   end
-
 end
