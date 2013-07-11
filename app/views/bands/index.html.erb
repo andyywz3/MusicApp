@@ -3,10 +3,10 @@
 <ul>
   <% @bands.each do |band| %>
 
-  <li> <a href="/bands/<%= band.id %>"><%= band.name %></a>
+  <li> <a href="<%= band_url(band) %>"><%= band.name %></a>
     <ul>
-      <li><a href="/bands/<%= band.id %>/albums">Albums</a></li>
-      <li><a href="/bands/<%= band.id %>/tracks">Tracks</a></li>
+      <li><a href="<%= band_albums_url(band) %>">Albums</a></li>
+      <li><a href="<%= bands_tracks_url(band) %>">Tracks</a></li>
     </ul>
   </li>
   <br>
@@ -19,6 +19,11 @@
 </form>
 <br>
 
-<form action="<%= albums_new_url %>" method="get">
+<form action="<%= new_album_url %>" method="get">
   <input type="submit" value="Create album">
+</form>
+
+<br>
+<form action="<%= new_track_url %>" method="get">
+  <input type="submit" value="Add track">
 </form>

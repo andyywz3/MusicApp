@@ -4,7 +4,7 @@
   <% @albums.each do |album| %>
 
   <li>
-    <a href="<%= album_url(@band, album) %>"><%= album.name %></a>
+    <a href="<%= album_url(album) %>"><%= album.name %></a>
   </li>
   <br>
 

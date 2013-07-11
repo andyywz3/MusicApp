@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
     flash[:errors] ||= []
 
     if album.save
-      redirect_to albums_url(band_id)
+      redirect_to band_albums_url(band_id)
     else
       flash[:errors] << "Could not create album"
     end
@@ -46,7 +46,7 @@ class AlbumsController < ApplicationController
 
     flash[:errors] ||= []
     if album.save
-      redirect_to albums_url(band_id)
+      redirect_to band_albums_url(band_id)
     else
       flash[:errors] << "Could not update band"
     end
@@ -54,8 +54,9 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album = Album.find(params[:id])
+    band_id = @album.band.id
     @album.destroy
-    redirect_to albums_url
+    redirect_to band_albums_url(band_id)
   end
 
 end

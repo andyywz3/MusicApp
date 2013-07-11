@@ -1,0 +1,7 @@
+<% @track.notes.each do |note| %>
+  <%= note.body  %>
+  <form action="<%= delete_note_url(note) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Remove note">
+  </form>
+<% end %>

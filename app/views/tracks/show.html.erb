@@ -1,0 +1,24 @@
+<h1> <%= @track.name %></h1>
+<a href="<%= band_url(@band) %>"><%= @band.name %></a>
+<br>
+<a href="<%= album_url(@album) %>"><%= @album.name %></a>
+<br>
+<form action="<%= edit_track_url(@track) %>" method="get">
+  <input type="submit" value="Edit track">
+</form>
+<form action="<%= track_url(@track) %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Remove track">
+</form>
+
+<form action="<%= add_note_url(@track) %>" method="post">
+  <div>Add Note:<br>
+    <textarea cols="30" rows="4" name="note[body]"></textarea>
+  </div>
+  <input type="submit" value="Submit">
+</form>
+
+
+<br>
+<%= render :partial => "notes/note" %>
+<br>

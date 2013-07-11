@@ -4,10 +4,9 @@
   <% @album.tracks.each do |track| %>
 
   <li>
-    <a href="<%= album_track_url(@band, album) %>"><%= track.name %></a>
+    <a href="<%= track_url(track) %>"><%= track.name %></a>
   </li>
   <br>
 
   <% end %>
 </ol>
-

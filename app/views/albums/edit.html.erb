@@ -1,6 +1,6 @@
 <h1>Edit <%= @album.name %></h1>
 
-<form action="<%= album_url(@band, @album) %>" method="post">
+<form action="<%= album_url(@album) %>" method="post">
   <input type="hidden" name="_method" value="put">
   <div>Name: <input type="text" name="album[name]" value="<%= @album.name %>"></div>
 
