@@ -1,4 +1,14 @@
 MusicApp::Application.routes.draw do
+  resources :bands do
+    collection do
+      resources :albums do
+        collection do
+          resources :tracks
+        end
+      end
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
