@@ -1,0 +1,28 @@
+<h1>Create Album</h1>
+
+<form action="<%= albums_create_url %>" method="post">
+  <div>Name: <input type="text" name="album[name]"></div>
+
+  <div>Genre: <input type="text" name="album[genre]"></div>
+
+  <div>Band:
+    <select name="band[name]">
+      <option value="">Choose a band</option>
+      <% @bands.each do |band| %>
+      <option value="<%= band.name %>"><%= band.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    Recorded:
+    <input name="album[recorded]" id="studio_recorded" type="radio" value="studio">
+    <label for="studio_recorded">Studio</label>
+
+    <input name="album[recorded]" id="live_recorded" type="radio" value="live">
+    <label for="live_recorded">Live</label>
+  </div>
+
+  <br>
+  <input type="submit" value="Create album">
+</form>

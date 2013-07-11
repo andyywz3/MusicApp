@@ -1,0 +1,6 @@
+<h1><%= @band.name  %>'s Tracks </h1>
+
+<div> <% @band.tracks.each do |track| %>
+  <%= track.album%>: <%= track.track_num  %>: <%= track.name %>
+  <% end  %>
+</div>
