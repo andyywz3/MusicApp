@@ -34,4 +34,5 @@ MusicApp::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  # config.action_mailer.delivery_method = :letter_opener
 end

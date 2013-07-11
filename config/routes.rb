@@ -7,6 +7,10 @@ MusicApp::Application.routes.draw do
     resources :tracks, only: :index
   end
   resources :tracks, except: :index
+  resources :users
+
+  get 'users/:id/activate' => 'users#activate', as: "users_activate"
+  put 'users/authenticate' => 'users#authenticate', as: "users_authenticate"
 
   get 'bands/:id/tracks' => 'bands#tracks', as: "bands_tracks"
   post 'track/:id/note' => 'tracks#add_note', as: "add_note"

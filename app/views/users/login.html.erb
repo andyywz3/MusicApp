@@ -1,0 +1,8 @@
+<h1>Login</h1>
+
+<form action="<%= users_authenticate_url %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <div>Email: <input type="email" name="user[email]"></div>
+  <div>Password: <input type="password" name="user[password]"></div>
+  <input type="submit" value="Login">
+</form>

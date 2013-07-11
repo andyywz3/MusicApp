@@ -38,3 +38,5 @@ gem 'jquery-rails'
 gem 'debugger'
 gem 'better_errors'
 gem "binding_of_caller"
+gem 'letter_opener', :group => :development
+gem 'addressable'
